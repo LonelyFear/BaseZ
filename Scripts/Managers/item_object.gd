@@ -1,6 +1,6 @@
 extends RigidBody2D
-
-@export var item : Item
+class_name ItemObject
+@export var item : Item = null
 
 var despawnTime := 60.0
 @onready var despawnTimer := $"DespawnTimer"
@@ -10,6 +10,7 @@ func _ready():
 		# Deletes any item object without an attached item
 		item = null
 		queue_free()
+		print("Bye")
 	else:
 		$"ItemSprites".frame = item.SpriteID
 		despawnTimer.wait_time = despawnTime

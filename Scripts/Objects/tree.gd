@@ -2,6 +2,7 @@ extends StaticBody2D
 
 const particles = preload("res://Scenes/TreeChopParticles.tscn")
 
+@export var drops : Array[Drop]
 var player : CharacterBody2D
 
 func _ready():
@@ -18,6 +19,6 @@ func _on_interaction_component_interacted():
 			add_sibling(particleInstance)
 			
 func _on_health_component_death():
-	var dropComponent  = $"DropComponent"
-	dropComponent.dropTable()
+	for drop in drops:
+		drop.dropItems(position, get_parent().get_parent(), drop)
 	queue_free()

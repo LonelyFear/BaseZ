@@ -71,6 +71,9 @@ func breakBlock():
 		if (tileDict[gridPos] <= 0):
 			# If it is, we remove the tile.
 			tileGrid.erase_cell(0 , gridPos)
+			# Spawns the drop of the block
+			for drop in blockData.drops:
+				drop.dropItems(mousePos * 56, get_parent().get_parent(), drop)
 
 func buildBlock():
 	# Gets the block that we are going to try to place

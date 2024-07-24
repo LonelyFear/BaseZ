@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_gahbi")
-itemDrop = ExtResource("1_fqilf")
+item = ExtResource("1_fqilf")
 amount = 4
