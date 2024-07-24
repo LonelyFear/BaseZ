@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Block" load_steps=2 format=3 uid="uid://xvtrmu5xvfng"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/block.gd" id="1_csygr"]
+
+[resource]
+script = ExtResource("1_csygr")
+blockName = "Stone Bricks"
+minDmg = 2.0
+blockHealth = 15.0
+atlasPos = Vector2i(2, 0)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://siwuivhfwig"]
+
+[ext_resource type="Resource" uid="uid://bbcfjlotk0s7n" path="res://CustomResources/Blocks/plank_block.tres" id="1_8uvu0"]
+[ext_resource type="Script" path="res://Scripts/Resources/item.gd" id="2_oncdg"]
+
+[resource]
+script = ExtResource("2_oncdg")
+itemName = "Wooden Planks"
+SpriteID = 0
+maxStack = 99
+relatedBlock = ExtResource("1_8uvu0")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Drop" load_steps=3 format=3 uid="uid://d23vj3hf2qy5m"]
+
+[ext_resource type="Resource" uid="uid://siwuivhfwig" path="res://CustomResources/Items/wooden_planks.tres" id="1_3jvfy"]
+[ext_resource type="Script" path="res://Scripts/Resources/drop.gd" id="2_3307f"]
+
+[resource]
+script = ExtResource("2_3307f")
+itemDrop = ExtResource("1_3jvfy")
+amount = 4

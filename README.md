@@ -1,0 +1,7 @@
+# BaseZ
+A simple zombie survival game centered around base building
+
+# Credits
+Thanks to FluffyKn1ght for helping with scripts and sprites.
+
+

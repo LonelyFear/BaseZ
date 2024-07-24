@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://d27ipnduijy3u"]
+
+[ext_resource type="Script" path="res://Scripts/Misc/crosshair.gd" id="1_k0apr"]
+[ext_resource type="Texture2D" uid="uid://c62ja7abv3jow" path="res://Sprites/BaseZ Crosshairs.png" id="2_50vkq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84354"]
+atlas = ExtResource("2_50vkq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5n0d"]
+atlas = ExtResource("2_50vkq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c71d5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84354")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5n0d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns6pb"]
+size = Vector2(56, 56)
+
+[node name="Crosshair" type="Node2D"]
+self_modulate = Color(1, 0, 1, 1)
+z_index = 100
+script = ExtResource("1_k0apr")
+
+[node name="CrosshairSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_c71d5")
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildArea"]
+shape = SubResource("RectangleShape2D_ns6pb")
+
+[connection signal="body_entered" from="NoBuildArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="NoBuildArea" to="." method="_on_area_2d_body_exited"]

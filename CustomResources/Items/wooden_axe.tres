@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://du0tvucyo2mjc"]
+
+[ext_resource type="Resource" uid="uid://b6j23hka7wjyx" path="res://CustomResources/Tools/wooden_axe.tres" id="1_jhd7c"]
+[ext_resource type="Script" path="res://Scripts/Resources/item.gd" id="1_yhbgx"]
+
+[resource]
+script = ExtResource("1_yhbgx")
+itemName = "Wooden Axe"
+SpriteID = 3
+maxStack = 1
+relatedTool = ExtResource("1_jhd7c")

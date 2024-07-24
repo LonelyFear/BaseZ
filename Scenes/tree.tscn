@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc2xcun6lto02"]
+
+[ext_resource type="PackedScene" uid="uid://cwwjl7pc2rqb8" path="res://Scenes/Components/interactionComponent.tscn" id="1_srchm"]
+[ext_resource type="Texture2D" uid="uid://bv1ijfb28cwy8" path="res://Sprites/BaseZ Tree.png" id="1_v3k86"]
+[ext_resource type="Script" path="res://Scripts/Objects/tree.gd" id="1_y6kbx"]
+[ext_resource type="PackedScene" uid="uid://cgv1aem1lbqv1" path="res://Scenes/Components/dropComponent.tscn" id="2_rvpke"]
+[ext_resource type="Resource" uid="uid://uflbuntqeqt" path="res://CustomResources/Drops/wood_drop.tres" id="3_gy8h6"]
+[ext_resource type="PackedScene" uid="uid://b1t053gdrp0og" path="res://Scenes/Components/healthComponent.tscn" id="4_kpkuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmuo"]
+size = Vector2(32, 55)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ob03"]
+radius = 11.0
+height = 32.0
+
+[node name="Tree" type="StaticBody2D" groups=["Tree"]]
+script = ExtResource("1_y6kbx")
+
+[node name="DropComponent" parent="." groups=["Tree"] instance=ExtResource("2_rvpke")]
+drops = Array[Resource("res://Scripts/Resources/drop.gd")]([ExtResource("3_gy8h6")])
+
+[node name="Interaction Component" parent="." groups=["Tree"] instance=ExtResource("1_srchm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component" groups=["Tree"]]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_dlmuo")
+
+[node name="TreeSprite" type="Sprite2D" parent="." groups=["Tree"]]
+position = Vector2(0, -57)
+scale = Vector2(4, 4)
+texture = ExtResource("1_v3k86")
+
+[node name="Tree Collider" type="CollisionShape2D" parent="." groups=["Tree"]]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5ob03")
+
+[node name="HealthComponent" parent="." groups=["Tree"] instance=ExtResource("4_kpkuo")]
+
+[connection signal="Interacted" from="Interaction Component" to="." method="_on_interaction_component_interacted"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
