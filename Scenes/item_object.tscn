@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dudafsi53fjl0"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/item_object.gd" id="1_hwdm1"]
-[ext_resource type="SpriteFrames" uid="uid://w6sncdcjka05" path="res://Resources/items.tres" id="2_2pcnu"]
+[ext_resource type="Script" path="res://Scripts/Managers/item_object.gd" id="1_y21cq"]
+[ext_resource type="SpriteFrames" uid="uid://w6sncdcjka05" path="res://Resources/items.tres" id="2_msykr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56uep"]
 radius = 16.0
@@ -13,11 +13,11 @@ radius = 28.0
 collision_layer = 2
 collision_mask = 3
 gravity_scale = 0.0
-script = ExtResource("1_hwdm1")
+script = ExtResource("1_y21cq")
 
 [node name="ItemSprites" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("2_2pcnu")
+sprite_frames = ExtResource("2_msykr")
 
 [node name="ItemCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_56uep")

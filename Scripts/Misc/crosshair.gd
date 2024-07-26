@@ -30,6 +30,9 @@ func _ready():
 	# Gets the grid
 	tileGrid = player.get_parent().find_child("Walls")
 	
+	updateTileHealthValues()
+
+func updateTileHealthValues():
 	# Goes through all the cells in the tilemap
 	for currentTile in tileGrid.get_used_cells(0):
 		# Checks if the cell has data
@@ -38,12 +41,18 @@ func _ready():
 			# We get the health value of the block
 			var blockHealth = tileGrid.get_cell_tile_data(0, currentTile).get_custom_data("BlockData").blockHealth
 			# We add the health value to our dictionary at the position of the tile
-			tileDict[currentTile] = blockHealth
+			if !tileDict.get(currentTile):
+				tileDict[currentTile] = blockHealth
 
 func _process(delta):
+	updateTileHealthValues()
 	getGridPos()
 	
+	if (player.selectedItem):
+		player.selectedItem.loadRelatedBlock(player.selectedItem.relatedBlockPath)
+	
 	setCrosshair()
+	
 	if (currentState == states.BUILD && canPlace):
 		# Checks if the player can build and if the crosshair has a block selected
 		buildBlock()
