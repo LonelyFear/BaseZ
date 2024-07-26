@@ -6,5 +6,7 @@
 script = ExtResource("1_l8gxe")
 blockName = "Stone Bricks"
 minDmg = 2.0
+requiredToolType = 2
 blockHealth = 20.0
 atlasPos = Vector2i(0, 2)
+drops = Array[Resource("res://Scripts/Resources/drop.gd")]([])

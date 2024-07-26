@@ -63,6 +63,7 @@ func _process(delta):
 func breakBlock():
 	# Gets the mining damage of the player tool
 	var miningDmg = player.selectedItem.relatedTool.miningDmg
+	var toolType = player.selectedItem.relatedTool.toolType
 	# Prepares a variable to hold the block data
 	var blockData : Block
 	
@@ -73,7 +74,7 @@ func breakBlock():
 	
 	# Makes sure blockData isnt null, the tool has more mining damage than the block's minimum mining damage
 	# and checks if the player clicks
-	if (blockData && miningDmg >= blockData.minDmg && Input.is_action_just_pressed("Action")):
+	if (blockData && miningDmg >= blockData.minDmg && blockData.requiredToolType == toolType && Input.is_action_just_pressed("Action")):
 		# Subtracts the mining damage from the health at that point
 		tileDict[gridPos] -= miningDmg
 		# Checks if the health at the grid position is less than o

@@ -8,3 +8,4 @@ meleeDmg = 1.0
 miningDmg = 1.0
 spriteID = 0
 toolRange = 200.0
+toolType = 1
