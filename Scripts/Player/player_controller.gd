@@ -101,6 +101,7 @@ func updateEquippedItem():
 	equippedTool = null
 	if (inventory.slots[selectedSlot].item):
 			selectedItem = inventory.slots[selectedSlot].item
+			selectedItem.loadRelatedBlock(selectedItem.relatedBlockPath)
 			if (selectedItem.relatedTool):
 				equippedTool = selectedItem.relatedTool
 	toolUpdate.emit()

@@ -40,23 +40,23 @@ func updateTileHealthValues():
 			# If the cell has data, we get the block data for its health, name, minimum mining damage, etc.
 			# We get the health value of the block
 			var blockHealth = tileGrid.get_cell_tile_data(0, currentTile).get_custom_data("BlockData").blockHealth
-			# We add the health value to our dictionary at the position of the tile
+			# Checks if the tile we are looking at doesnt have a health value already
 			if !tileDict.get(currentTile):
+				# We add the health value to our dictionary at the position of the tile
 				tileDict[currentTile] = blockHealth
 
 func _process(delta):
 	updateTileHealthValues()
-	getGridPos()
 	
-	if (player.selectedItem):
-		player.selectedItem.loadRelatedBlock(player.selectedItem.relatedBlockPath)
+	getGridPos()
+
 	
 	setCrosshair()
 	
 	if (currentState == states.BUILD && canPlace):
 		# Checks if the player can build and if the crosshair has a block selected
 		buildBlock()
-	if (currentState == states.AIM && canPlace):
+	if (currentState == states.AIM):
 		# Checks if the player could place a block and if the crosshair has a tool selected
 		breakBlock()
 

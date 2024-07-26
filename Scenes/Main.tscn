@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://drt583wwsh87g"]
+[gd_scene load_steps=7 format=3 uid="uid://drt583wwsh87g"]
 
-[ext_resource type="PackedScene" uid="uid://dudafsi53fjl0" path="res://Scenes/item_object.tscn" id="1_0g33u"]
 [ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/Player.tscn" id="2_ehspa"]
-[ext_resource type="Resource" uid="uid://siwuivhfwig" path="res://CustomResources/Items/wooden_planks.tres" id="2_nhsw8"]
 [ext_resource type="PackedScene" uid="uid://d27ipnduijy3u" path="res://Scenes/crosshair.tscn" id="3_lnose"]
 [ext_resource type="PackedScene" uid="uid://cpkfp0q6ro3gf" path="res://Scenes/tool.tscn" id="4_e1efq"]
 [ext_resource type="TileSet" uid="uid://dy8epjtgbdlel" path="res://Resources/mainTileset.tres" id="5_hi8t2"]
@@ -11,10 +9,6 @@
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
-
-[node name="Item" parent="." instance=ExtResource("1_0g33u")]
-position = Vector2(-372, 129)
-item = ExtResource("2_nhsw8")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_ehspa")]
 
