@@ -9,7 +9,7 @@ func _ready():
 func updateSlot(slot : InvSlot):
 	if (slot.item):
 		$"ItemSprite".visible = true
-		$"ItemSprite".frame = slot.item.SpriteID
+		$"ItemSprite".texture = slot.item.sprite
 		$"ItemCounter".visible = true
 		$"ItemCounter".text = str(slot.amount)
 		if (slot.amount == 1):

@@ -12,7 +12,7 @@ func _ready():
 		queue_free()
 		print("Bye")
 	else:
-		$"ItemSprites".frame = item.SpriteID
+		$"ItemSprite".texture = item.sprite
 		despawnTimer.wait_time = despawnTime
 		despawnTimer.start()
 

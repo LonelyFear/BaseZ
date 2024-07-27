@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpkfp0q6ro3gf"]
+[gd_scene load_steps=2 format=3 uid="uid://cpkfp0q6ro3gf"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/tool_manager.gd" id="1_ndvcm"]
-[ext_resource type="SpriteFrames" uid="uid://w6sncdcjka05" path="res://Resources/items.tres" id="2_eonrh"]
 
 [node name="Tool" type="Node2D"]
 script = ExtResource("1_ndvcm")
 
-[node name="ToolSprites" type="AnimatedSprite2D" parent="."]
+[node name="ToolSprite" type="Sprite2D" parent="."]
 position = Vector2(50, 0)
 scale = Vector2(2.5, 2.5)
-sprite_frames = ExtResource("2_eonrh")

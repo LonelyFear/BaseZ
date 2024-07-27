@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3wxjdkas8kld"
-path="res://.godot/imported/BaseZ Items.png-9d46d7f92db082a4ed22cc8ea23e7a78.ctex"
+uid="uid://mg3xdhl15emu"
+path="res://.godot/imported/BaseZ Stone Block.png-673966a2d09ebb5940792b9faf847685.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BaseZ Items.png"
-dest_files=["res://.godot/imported/BaseZ Items.png-9d46d7f92db082a4ed22cc8ea23e7a78.ctex"]
+source_file="res://Sprites/Blocks/BaseZ Stone Block.png"
+dest_files=["res://.godot/imported/BaseZ Stone Block.png-673966a2d09ebb5940792b9faf847685.ctex"]
 
 [params]
 

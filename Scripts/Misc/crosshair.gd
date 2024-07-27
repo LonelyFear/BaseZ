@@ -84,6 +84,7 @@ func breakBlock():
 				drop.dropItems(mousePos * 56, get_parent().get_parent(), drop)
 			# Adds particles
 		var particleInstance = load("res://Scenes/particles.tscn").instantiate()
+		particleInstance.texture.atlas = blockData.blockSprite
 		particleInstance.position = position
 		add_sibling(particleInstance)
 

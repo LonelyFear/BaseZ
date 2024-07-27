@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://c4kdhnfpdm8k2"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c4kdhnfpdm8k2"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/item.gd" id="1_aitci"]
+[ext_resource type="Texture2D" uid="uid://c2wukbnv42kgl" path="res://Sprites/Blocks/BaseZ Bricks.png" id="2_oj2rh"]
 
 [resource]
 script = ExtResource("1_aitci")
 itemName = "Stone Bricks"
-SpriteID = 1
+sprite = ExtResource("2_oj2rh")
 maxStack = 99
 relatedBlockPath = "res://CustomResources/Blocks/stone_bricks.tres"

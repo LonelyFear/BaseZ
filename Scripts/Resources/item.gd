@@ -2,7 +2,7 @@ extends Resource
 class_name Item
 
 @export var itemName : String = "Item"
-@export var SpriteID : int = 0
+@export var sprite : CompressedTexture2D
 @export var maxStack : int = 69 # ehehehehe :3
 @export var relatedTool : Tool = null
 @export var relatedBlockPath : String

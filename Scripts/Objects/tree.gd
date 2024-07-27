@@ -21,6 +21,7 @@ func _on_interaction_component_interacted():
 			$"HealthComponent".damage(player.equippedTool.miningDmg)
 			# Use the Godot Particle system - a great system for making particles - to make some great particles
 			var particleInstance = particles.instantiate()
+			particleInstance.texture.atlas = preload("res://Sprites/plank.png")
 			particleInstance.position = position
 			add_sibling(particleInstance)
 			

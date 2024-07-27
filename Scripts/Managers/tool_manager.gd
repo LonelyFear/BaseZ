@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var equippedTool : Tool
-@onready var sprite := $"ToolSprites"
+@onready var sprite := $"ToolSprite"
 func _ready():
 	get_parent().itemUpdate.connect(updateTool)
 	updateTool()
@@ -11,7 +11,7 @@ func updateTool():
 	equippedTool = get_parent().equippedTool
 	if (equippedTool):
 		visible = true
-		sprite.frame = equippedTool.spriteID
+		sprite.texture = equippedTool.sprite
 		get_parent().maxRange = equippedTool.toolRange
 		get_parent().equippedTool = equippedTool
 	else:

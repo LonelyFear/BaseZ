@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bgn04u68vfuib"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bgn04u68vfuib"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/item.gd" id="1_cpibr"]
 [ext_resource type="Resource" uid="uid://cqcid5o4cq5b5" path="res://CustomResources/Tools/wooden_pickaxe.tres" id="1_mv2gm"]
+[ext_resource type="Texture2D" uid="uid://cgrfm5csraysl" path="res://Sprites/Items/BaseZ Wooden Pickaxe.png" id="3_38nn5"]
 
 [resource]
 script = ExtResource("1_cpibr")
-itemName = "Wooden Axe"
-SpriteID = 7
+itemName = "Wooden Pickaxe"
+sprite = ExtResource("3_38nn5")
 maxStack = 1
 relatedTool = ExtResource("1_mv2gm")
 relatedBlockPath = ""

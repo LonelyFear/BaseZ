@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Block" load_steps=3 format=3 uid="uid://dscefo4wejmof"]
+[gd_resource type="Resource" script_class="Block" load_steps=4 format=3 uid="uid://dscefo4wejmof"]
 
+[ext_resource type="Texture2D" uid="uid://c2wukbnv42kgl" path="res://Sprites/Blocks/BaseZ Bricks.png" id="1_atd4i"]
 [ext_resource type="Script" path="res://Scripts/Resources/block.gd" id="1_l8gxe"]
 [ext_resource type="Resource" uid="uid://cqjyccqch3a2k" path="res://CustomResources/Drops/Blocks/stone_drops.tres" id="1_sumt3"]
 
@@ -10,4 +11,5 @@ minDmg = 2.0
 requiredToolType = 2
 blockHealth = 20.0
 atlasPos = Vector2i(0, 2)
+blockSprite = ExtResource("1_atd4i")
 drops = Array[Resource("res://Scripts/Resources/drop.gd")]([ExtResource("1_sumt3")])

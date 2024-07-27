@@ -1,25 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://dliobtnw62pvv"]
+[gd_scene load_steps=6 format=3 uid="uid://dliobtnw62pvv"]
 
 [ext_resource type="Script" path="res://Scripts/Ui/ui_inv_slot.gd" id="1_gr7v1"]
-[ext_resource type="SpriteFrames" uid="uid://w6sncdcjka05" path="res://Resources/items.tres" id="2_asmjk"]
 [ext_resource type="Texture2D" uid="uid://cbkvgs5saghdf" path="res://Sprites/BaseZ Slots.png" id="3_el4ew"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w0v1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwofu"]
 atlas = ExtResource("3_el4ew")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvxxx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w80x"]
 atlas = ExtResource("3_el4ew")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k156g"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ips2r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3w0v1")
+"texture": SubResource("AtlasTexture_lwofu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dvxxx")
+"texture": SubResource("AtlasTexture_2w80x")
 }],
 "loop": true,
 "name": &"default",
@@ -34,11 +33,10 @@ offset_right = 16.0
 offset_bottom = 16.0
 script = ExtResource("1_gr7v1")
 
-[node name="ItemSprite" type="AnimatedSprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(8, 8)
 scale = Vector2(0.5, 0.5)
-sprite_frames = ExtResource("2_asmjk")
 
 [node name="ItemCounter" type="Label" parent="."]
 z_index = 2
@@ -62,4 +60,4 @@ vertical_alignment = 2
 
 [node name="SlotSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
-sprite_frames = SubResource("SpriteFrames_k156g")
+sprite_frames = SubResource("SpriteFrames_ips2r")

@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Tool" load_steps=2 format=3 uid="uid://cqcid5o4cq5b5"]
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://cqcid5o4cq5b5"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/tool_class.gd" id="1_mivn7"]
+[ext_resource type="Texture2D" uid="uid://cgrfm5csraysl" path="res://Sprites/Items/BaseZ Wooden Pickaxe.png" id="2_pl5re"]
 
 [resource]
 script = ExtResource("1_mivn7")
 meleeDmg = 2.0
 miningDmg = 2.0
-spriteID = 7
+sprite = ExtResource("2_pl5re")
 toolRange = 200.0
 toolType = 2
