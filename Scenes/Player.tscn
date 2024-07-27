@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b182vrq45yxiq"]
+[gd_scene load_steps=22 format=3 uid="uid://b182vrq45yxiq"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player_controller.gd" id="1_ggrik"]
 [ext_resource type="Texture2D" uid="uid://bvwv5yw25s72v" path="res://Sprites/BaseZ Player.png" id="2_6hd3y"]
@@ -146,6 +146,9 @@ animations = [{
 radius = 16.0
 height = 36.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrxcn"]
+radius = 30.0
+
 [node name="PlayerCharacter" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ggrik")
 inventory = ExtResource("2_eyngu")
@@ -161,3 +164,8 @@ shape = SubResource("CapsuleShape2D_fs2k0")
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["Player"]]
 position_smoothing_enabled = true
+
+[node name="EnemyArea" type="Area2D" parent="." groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
+shape = SubResource("CircleShape2D_mrxcn")
