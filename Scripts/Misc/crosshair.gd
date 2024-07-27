@@ -82,6 +82,10 @@ func breakBlock():
 			# Spawns the drop of the block
 			for drop in blockData.drops:
 				drop.dropItems(mousePos * 56, get_parent().get_parent(), drop)
+			# Adds particles
+		var particleInstance = load("res://Scenes/particles.tscn").instantiate()
+		particleInstance.position = position
+		add_sibling(particleInstance)
 
 func buildBlock():
 	# Gets the block that we are going to try to place

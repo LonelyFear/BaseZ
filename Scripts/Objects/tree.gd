@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const particles = preload("res://Scenes/TreeChopParticles.tscn")
+const particles = preload("res://Scenes/particles.tscn")
 
 @export var drops : Array[Drop]
 var player : Player

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv7duwco5g66q"]
+
+[ext_resource type="Material" uid="uid://cg85ye8lmoikp" path="res://Resources/TreeParticleProcessMaterial.tres" id="1_p16oe"]
+[ext_resource type="Texture2D" uid="uid://cptu173t2ujeh" path="res://Sprites/plank.png" id="2_jjoq8"]
+[ext_resource type="Script" path="res://Scripts/Objects/Tree_chop_particles.gd" id="3_60eta"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bsmg"]
+atlas = ExtResource("2_jjoq8")
+region = Rect2(0, 0, 5.76327, 5.84912)
+
+[node name="ChopParticles" type="GPUParticles2D"]
+z_index = 4096
+z_as_relative = false
+emitting = false
+amount = 5
+process_material = ExtResource("1_p16oe")
+texture = SubResource("AtlasTexture_2bsmg")
+lifetime = 0.57
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("3_60eta")
