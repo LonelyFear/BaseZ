@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drt583wwsh87g"]
+[gd_scene load_steps=9 format=3 uid="uid://drt583wwsh87g"]
 
 [ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/player.tscn" id="2_ehspa"]
 [ext_resource type="PackedScene" uid="uid://d27ipnduijy3u" path="res://Scenes/crosshair.tscn" id="3_lnose"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dy8epjtgbdlel" path="res://Resources/mainTileset.tres" id="5_hi8t2"]
 [ext_resource type="PackedScene" uid="uid://la442w0vr5tb" path="res://Scenes/enemy.tscn" id="6_1mujo"]
 [ext_resource type="PackedScene" uid="uid://bc2xcun6lto02" path="res://Scenes/tree.tscn" id="7_e6ba0"]
+[ext_resource type="Resource" uid="uid://d2dkmpj8bu1cc" path="res://CustomResources/Enemies/basic_enemy.tres" id="7_k3v2s"]
 [ext_resource type="PackedScene" uid="uid://d2134fbaf11wy" path="res://Scenes/ui_layer.tscn" id="8_lifoj"]
 
 [node name="main" type="Node2D"]
@@ -58,5 +59,6 @@ position = Vector2(658, 514)
 position = Vector2(454, 259)
 
 [node name="Enemy" parent="." instance=ExtResource("6_1mujo")]
+enemyType = ExtResource("7_k3v2s")
 
 [node name="Ui Layer" parent="." instance=ExtResource("8_lifoj")]

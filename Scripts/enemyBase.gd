@@ -1,11 +1,13 @@
 extends CharacterBody2D
-class_name Enemy
+
+@export var enemyType : Enemy = null
 
 # Movement
 var movementVector : Vector2
-const speed : float = 150.0
+var speed : float = 150.0
 const acceleration : float = 10.0
 const near_player_multiplier = 0.5
+
 enum directions{
 	UP,
 	DOWN,
@@ -15,14 +17,17 @@ enum directions{
 var dir: directions = directions.DOWN
 var moving : bool = false
 
-var player : Player = null
-var playerenemyarea : Area2D = null
-
+var player : Player
 
 func _ready():
-	player = get_parent().find_child("PlayerCharacter")
-	playerenemyarea = player.find_child("EnemyArea")
-	
+	if (enemyType):
+		player = get_parent().find_child("PlayerCharacter")
+		# Sets enemy stats
+		scale *= enemyType.scaleMult
+		$"EnemySprite".sprite_frames = enemyType.spriteAnim
+	else:
+		queue_free()
+
 func _process(delta):
 	manageMovement(delta)
 	move_and_slide()
@@ -40,20 +45,21 @@ func manageMovement(delta):
 			dir = directions.UP
 		elif (movementVector.y > 0):
 			dir = directions.DOWN
-			
+	
+	speed = 150 * enemyType.speedMult
+	if position.distance_to(player.position) < 50:
+		speed = 75
+	
 	# Sets velocity
 	velocity = velocity.lerp(movementVector * speed, acceleration * delta)
 	fixSpeed()
-	if playerenemyarea.get_overlapping_bodies().has(self):
-		velocity *= near_player_multiplier
-		return
+	
 
 func fixSpeed():
 	# Detects if the velocity is greater than the max player speed
 	if velocity.length() > speed:
 		# Forces the velocity to be the speed
 		velocity = velocity.normalized() * speed
-
 
 # Animates the player
 func AnimateEnemy():

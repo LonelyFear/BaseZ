@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://d2dkmpj8bu1cc"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/enemy.gd" id="1_sj440"]
+[ext_resource type="SpriteFrames" uid="uid://3uev08aql0xb" path="res://Resources/EnemyAnimations/basic_zombie_anim.tres" id="2_1aaec"]
+
+[resource]
+script = ExtResource("1_sj440")
+meleeDmg = 1.0
+blockDmg = 1.0
+maxHealth = 10.0
+speedMult = 1.0
+scaleMult = 1.0
+spriteAnim = ExtResource("2_1aaec")
