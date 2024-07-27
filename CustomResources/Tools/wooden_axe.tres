@@ -6,6 +6,6 @@
 script = ExtResource("1_mlxu0")
 meleeDmg = 1.0
 miningDmg = 1.0
-spriteID = 0
+spriteID = 3
 toolRange = 200.0
 toolType = 1

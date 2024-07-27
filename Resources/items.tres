@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://w6sncdcjka05"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://w6sncdcjka05"]
 
 [ext_resource type="Texture2D" uid="uid://d3wxjdkas8kld" path="res://Sprites/BaseZ Items.png" id="1_f17k6"]
 
@@ -30,6 +30,14 @@ region = Rect2(16, 16, 16, 16)
 atlas = ExtResource("1_f17k6")
 region = Rect2(16, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yb6t"]
+atlas = ExtResource("1_f17k6")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr0on"]
+atlas = ExtResource("1_f17k6")
+region = Rect2(32, 0, 16, 16)
+
 [resource]
 animations = [{
 "frames": [{
@@ -53,6 +61,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rinxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yb6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr0on")
 }],
 "loop": true,
 "name": &"default",

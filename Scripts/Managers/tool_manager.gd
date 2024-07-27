@@ -4,7 +4,7 @@ extends Node2D
 @export var equippedTool : Tool
 @onready var sprite := $"ToolSprites"
 func _ready():
-	get_parent().toolUpdate.connect(updateTool)
+	get_parent().itemUpdate.connect(updateTool)
 	updateTool()
 
 func updateTool():

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Block" load_steps=2 format=3 uid="uid://xvtrmu5xvfng"]
+[gd_resource type="Resource" script_class="Block" load_steps=3 format=3 uid="uid://xvtrmu5xvfng"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/block.gd" id="1_csygr"]
+[ext_resource type="Resource" uid="uid://cqjyccqch3a2k" path="res://CustomResources/Drops/Blocks/stone_drops.tres" id="1_l3wy0"]
 
 [resource]
 script = ExtResource("1_csygr")
@@ -9,4 +10,4 @@ minDmg = 2.0
 requiredToolType = 2
 blockHealth = 15.0
 atlasPos = Vector2i(2, 0)
-drops = Array[Resource("res://Scripts/Resources/drop.gd")]([])
+drops = Array[Resource("res://Scripts/Resources/drop.gd")]([ExtResource("1_l3wy0")])

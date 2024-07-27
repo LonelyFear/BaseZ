@@ -29,6 +29,7 @@ func _ready():
 	player = get_parent()
 	# Gets the grid
 	tileGrid = player.get_parent().find_child("Walls")
+	player.itemUpdate.connect(setCrosshair)
 	
 	updateTileHealthValues()
 
@@ -49,9 +50,6 @@ func _process(delta):
 	updateTileHealthValues()
 	
 	getGridPos()
-
-	
-	setCrosshair()
 	
 	if (currentState == states.BUILD && canPlace):
 		# Checks if the player can build and if the crosshair has a block selected
@@ -106,7 +104,7 @@ func setCrosshair():
 		# Sets the crosshair to AIM if the player is holding a tool
 		show()
 		currentState = states.AIM
-	elif (player.selectedItem.relatedBlock):
+	elif player.selectedItem && player.selectedItem.relatedBlock:
 		# Sets the crosshair to BUILD if the player is holding a placeable
 		show()
 		currentState = states.BUILD

@@ -5,7 +5,7 @@ class_name Player
 var maxRange := 200.0
 var equippedTool : Tool = null
 var selectedItem : Item = null
-signal toolUpdate
+signal itemUpdate
 
 # Movement
 var movementVector : Vector2
@@ -98,13 +98,15 @@ func AnimatePlayer():
 
 
 func updateEquippedItem():
+	selectedItem = null
 	equippedTool = null
 	if (inventory.slots[selectedSlot].item):
-			selectedItem = inventory.slots[selectedSlot].item
+		selectedItem = inventory.slots[selectedSlot].item
+		if !selectedItem.relatedBlockPath.is_empty() && !selectedItem.relatedBlock:
 			selectedItem.loadRelatedBlock(selectedItem.relatedBlockPath)
-			if (selectedItem.relatedTool):
-				equippedTool = selectedItem.relatedTool
-	toolUpdate.emit()
+		if (selectedItem.relatedTool):
+			equippedTool = selectedItem.relatedTool
+	itemUpdate.emit()
 
 # Manages inventory input
 func manageInventoryInput():

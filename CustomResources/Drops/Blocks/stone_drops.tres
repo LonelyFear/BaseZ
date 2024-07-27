@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Drop" load_steps=3 format=3 uid="uid://cqjyccqch3a2k"]
+
+[ext_resource type="Resource" uid="uid://c4kdhnfpdm8k2" path="res://CustomResources/Items/stone_bricks.tres" id="1_auce2"]
+[ext_resource type="Script" path="res://Scripts/Resources/drop.gd" id="2_0w6su"]
+
+[resource]
+script = ExtResource("2_0w6su")
+item = ExtResource("1_auce2")
+amount = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=2 format=3 uid="uid://cqcid5o4cq5b5"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/tool_class.gd" id="1_mivn7"]
+
+[resource]
+script = ExtResource("1_mivn7")
+meleeDmg = 2.0
+miningDmg = 2.0
+spriteID = 7
+toolRange = 200.0
+toolType = 2
