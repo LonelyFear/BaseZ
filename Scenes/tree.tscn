@@ -13,26 +13,26 @@ size = Vector2(32, 55)
 radius = 11.0
 height = 32.0
 
-[node name="Tree" type="StaticBody2D" groups=["Tree"]]
+[node name="Tree" type="StaticBody2D" groups=["Object", "Tree"]]
 script = ExtResource("1_y6kbx")
 drops = Array[Resource("res://Scripts/Resources/drop.gd")]([ExtResource("3_gy8h6")])
 
-[node name="Interaction Component" parent="." groups=["Tree"] instance=ExtResource("1_srchm")]
+[node name="Interaction Component" parent="." groups=["Object", "Tree"] instance=ExtResource("1_srchm")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component" groups=["Tree"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component" groups=["Object", "Tree"]]
 position = Vector2(0, -16.5)
 shape = SubResource("RectangleShape2D_dlmuo")
 
-[node name="TreeSprite" type="Sprite2D" parent="." groups=["Tree"]]
+[node name="TreeSprite" type="Sprite2D" parent="." groups=["Object", "Tree"]]
 position = Vector2(0, -57)
 scale = Vector2(4, 4)
 texture = ExtResource("1_v3k86")
 
-[node name="Tree Collider" type="CollisionShape2D" parent="." groups=["Tree"]]
+[node name="Tree Collider" type="CollisionShape2D" parent="." groups=["Object", "Tree"]]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5ob03")
 
-[node name="HealthComponent" parent="." groups=["Tree"] instance=ExtResource("4_kpkuo")]
+[node name="HealthComponent" parent="." groups=["Object", "Tree"] instance=ExtResource("4_kpkuo")]
 
 [connection signal="Interacted" from="Interaction Component" to="." method="_on_interaction_component_interacted"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

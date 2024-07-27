@@ -149,23 +149,23 @@ height = 36.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrxcn"]
 radius = 30.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" groups=["Player"]]
+[node name="PlayerCharacter" type="CharacterBody2D" groups=["Object", "Player"]]
 script = ExtResource("1_ggrik")
 inventory = ExtResource("2_eyngu")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." groups=["Object", "Player"]]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pjjyq")
 animation = &"Walk_Up"
 
-[node name="PlayerCollider" type="CollisionShape2D" parent="." groups=["Player"]]
+[node name="PlayerCollider" type="CollisionShape2D" parent="." groups=["Object", "Player"]]
 position = Vector2(0, 19)
 shape = SubResource("CapsuleShape2D_fs2k0")
 
-[node name="PlayerCamera" type="Camera2D" parent="." groups=["Player"]]
+[node name="PlayerCamera" type="Camera2D" parent="." groups=["Object", "Player"]]
 position_smoothing_enabled = true
 
-[node name="EnemyArea" type="Area2D" parent="." groups=["Player"]]
+[node name="EnemyArea" type="Area2D" parent="." groups=["Object", "Player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea" groups=["Object"]]
 shape = SubResource("CircleShape2D_mrxcn")

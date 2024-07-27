@@ -145,11 +145,11 @@ func setCrosshairTexture():
 
 func _on_area_2d_body_entered(body):
 	# Checks if the crosshair is over a tree or the player, doesnt allow placing if so
-	if (body.is_in_group("Player") || body.is_in_group("Tree")):
+	if (body.is_in_group("Object")):
 		canPlace = false
 
 
 func _on_area_2d_body_exited(body):
 	# Checks if the crosshair moved, then allows placing again
-	if (body.is_in_group("Player") || body.is_in_group("Tree")):
+	if (body.is_in_group("Object")):
 		canPlace = true

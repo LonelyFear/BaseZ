@@ -47,12 +47,14 @@ func manageMovement(delta):
 	if playerenemyarea.get_overlapping_bodies().has(self):
 		velocity *= near_player_multiplier
 		return
+
 func fixSpeed():
 	# Detects if the velocity is greater than the max player speed
 	if velocity.length() > speed:
 		# Forces the velocity to be the speed
 		velocity = velocity.normalized() * speed
-		
+
+
 # Animates the player
 func AnimateEnemy():
 	# Saves player sprite as var
