@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-const particles = preload("res://Scenes/particles.tscn")
-
 @export var drops : Array[Drop]
 var player : Player
 
@@ -11,19 +9,22 @@ func _ready():
 	position = round(position / 56) * 56
 
 func _on_interaction_component_interacted():
-	var toolTypes =  player.selectedItem.relatedTool.toolTypes
-	var playerTool = player.selectedItem.relatedTool
+	var playerTool : Tool
+	if (player.selectedItem && player.selectedItem.relatedTool):
+		playerTool = player.selectedItem.relatedTool
+	else:
+		return
 	# Checks if the player is holding an axe
-	if (player && playerTool && playerTool.toolType == toolTypes.AXE):
-		# Checks if we are in range
-		if (player.position.distance_to(position) <= player.maxRange && player.equippedTool):
-			# Damages the tree
-			$"HealthComponent".damage(player.equippedTool.miningDmg)
-			# Use the Godot Particle system - a great system for making particles - to make some great particles
-			var particleInstance = particles.instantiate()
-			particleInstance.texture.atlas = preload("res://Sprites/plank.png")
-			particleInstance.position = position
-			add_sibling(particleInstance)
+	var toolTypes =  player.selectedItem.relatedTool.toolTypes
+	# Checks if we are in range
+	if (player.position.distance_to(position) <= player.maxRange && playerTool.toolType == toolTypes.AXE):
+		# Damages the tree
+		$"HealthComponent".damage(player.equippedTool.miningDmg)
+		# Use the Godot Particle system - a great system for making particles - to make some great particles
+		var particleInstance = load("res://Scenes/particles.tscn").instantiate()
+		particleInstance.texture.atlas = preload("res://Sprites/plank.png")
+		particleInstance.position = position
+		add_sibling(particleInstance)
 			
 func _on_health_component_death():
 	# Drops tree loot

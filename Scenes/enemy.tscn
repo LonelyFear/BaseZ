@@ -10,9 +10,10 @@ size = Vector2(56, 72)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g6pq"]
 radius = 16.0
-height = 36.0
+height = 32.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["Object"]]
+collision_mask = 2
 script = ExtResource("1_7x6v6")
 
 [node name="Interaction Component" parent="." instance=ExtResource("2_44oif")]
@@ -30,5 +31,8 @@ sprite_frames = ExtResource("4_aww6v")
 animation = &"Walk_Up"
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." groups=["Object", "Player"]]
-position = Vector2(0, 19)
+position = Vector2(0, 20)
 shape = SubResource("CapsuleShape2D_7g6pq")
+
+[connection signal="Interacted" from="Interaction Component" to="." method="_on_interaction_component_interacted"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

@@ -14,6 +14,7 @@ radius = 11.0
 height = 32.0
 
 [node name="Tree" type="StaticBody2D" groups=["Object", "Tree"]]
+collision_layer = 3
 script = ExtResource("1_y6kbx")
 drops = Array[Resource("res://Scripts/Resources/drop.gd")]([ExtResource("3_gy8h6")])
 

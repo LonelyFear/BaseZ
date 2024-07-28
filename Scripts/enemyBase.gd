@@ -47,7 +47,7 @@ func manageMovement(delta):
 			dir = directions.DOWN
 	
 	speed = 150 * enemyType.speedMult
-	if position.distance_to(player.position) < 50:
+	if position.distance_to(player.position) < 100:
 		speed = 75
 	
 	# Sets velocity
@@ -99,3 +99,27 @@ func AnimateEnemy():
 				sprite.play("Walk_Down")
 			else:
 				sprite.play("Idle_Down")
+
+func _on_interaction_component_interacted():
+	var playerTool : Tool
+	if (player.selectedItem && player.selectedItem.relatedTool):
+		playerTool = player.selectedItem.relatedTool
+	else:
+		return
+	
+	$"HealthComponent".damage(playerTool.meleeDmg)
+	var particleInstance = load("res://Scenes/particles.tscn").instantiate()
+	particleInstance.texture.atlas = preload("res://Sprites/Blood.png")
+	particleInstance.position = position
+	add_sibling(particleInstance)
+
+
+func _on_health_component_death():
+	for i in range(3):
+		var particleInstance = load("res://Scenes/particles.tscn").instantiate()
+		particleInstance.texture.atlas = preload("res://Sprites/Blood.png")
+		particleInstance.position = position
+		add_sibling(particleInstance)
+	for drop in enemyType.drops:
+		drop.dropItems(position, get_parent().get_parent(), drop)
+	queue_free()
