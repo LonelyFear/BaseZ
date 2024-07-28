@@ -35,16 +35,12 @@ func _process(delta):
 
 func manageMovement(delta):
 	movementVector = position.direction_to(player.position)
+	
 	if (movementVector.x < 0):
 		dir = directions.LEFT
-	elif (movementVector.x > 0):
+	else:
 		dir = directions.RIGHT
-		
-	if movementVector.x < movementVector.y:
-		if (movementVector.y < 0):
-			dir = directions.UP
-		elif (movementVector.y > 0):
-			dir = directions.DOWN
+	
 	
 	speed = 150 * enemyType.speedMult
 	if position.distance_to(player.position) < 100:
