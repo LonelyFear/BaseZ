@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://drt583wwsh87g"]
+[gd_scene load_steps=10 format=3 uid="uid://drt583wwsh87g"]
 
-[ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/player.tscn" id="2_ehspa"]
+[ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/Player.tscn" id="2_ehspa"]
 [ext_resource type="PackedScene" uid="uid://d27ipnduijy3u" path="res://Scenes/crosshair.tscn" id="3_lnose"]
 [ext_resource type="PackedScene" uid="uid://cpkfp0q6ro3gf" path="res://Scenes/tool.tscn" id="4_e1efq"]
+[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="4_qg1i0"]
 [ext_resource type="TileSet" uid="uid://dy8epjtgbdlel" path="res://Resources/mainTileset.tres" id="5_hi8t2"]
 [ext_resource type="PackedScene" uid="uid://la442w0vr5tb" path="res://Scenes/enemy.tscn" id="6_1mujo"]
 [ext_resource type="PackedScene" uid="uid://bc2xcun6lto02" path="res://Scenes/tree.tscn" id="7_e6ba0"]
@@ -17,6 +18,9 @@ y_sort_enabled = true
 [node name="Crosshair" parent="PlayerCharacter" instance=ExtResource("3_lnose")]
 
 [node name="Tool" parent="PlayerCharacter" instance=ExtResource("4_e1efq")]
+
+[node name="HealthComponent" type="Node2D" parent="PlayerCharacter"]
+script = ExtResource("4_qg1i0")
 
 [node name="Ground" type="TileMap" parent="."]
 z_index = -1

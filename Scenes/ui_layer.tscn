@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2134fbaf11wy"]
+[gd_scene load_steps=3 format=3 uid="uid://d2134fbaf11wy"]
 
 [ext_resource type="PackedScene" uid="uid://bc2b7noa8a5r" path="res://Scenes/inventory.tscn" id="1_06bmi"]
+[ext_resource type="PackedScene" uid="uid://dyqarypdnfgqo" path="res://Scenes/health.tscn" id="2_h6cxi"]
 
 [node name="Ui Layer" type="CanvasLayer"]
 
@@ -9,3 +10,5 @@ offset_left = 55.0
 offset_top = 55.0
 offset_right = 95.0
 offset_bottom = 95.0
+
+[node name="Health" parent="." instance=ExtResource("2_h6cxi")]

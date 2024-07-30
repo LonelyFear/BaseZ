@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyqarypdnfgqo"]
+
+[ext_resource type="Script" path="res://Scripts/health.gd" id="1_3c4wh"]
+[ext_resource type="Texture2D" uid="uid://b735cjyb7xell" path="res://Sprites/BaseZ Heart.png" id="1_eya0r"]
+[ext_resource type="Texture2D" uid="uid://dep4u75jv6w15" path="res://Sprites/healthBarBottom.png" id="3_2jgmn"]
+[ext_resource type="Texture2D" uid="uid://b48xmyvxhnw7q" path="res://Sprites/healthBarOutline.png" id="4_64slt"]
+[ext_resource type="Texture2D" uid="uid://nyttorqg3il4" path="res://Sprites/healthbar.png" id="5_e1bto"]
+[ext_resource type="FontFile" uid="uid://5w11ol7ebwqx" path="res://BaseZ Font.ttf" id="6_nsucx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7k6l"]
+font = ExtResource("6_nsucx")
+font_size = 72
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Health" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 632.0
+offset_right = 32.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3c4wh")
+
+[node name="HeartIcon" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_eya0r")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 18.0
+offset_right = 181.0
+offset_bottom = 42.0
+scale = Vector2(2, 2)
+max_value = 10.0
+step = 0.001
+value = 10.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("3_2jgmn")
+texture_over = ExtResource("4_64slt")
+texture_progress = ExtResource("5_e1bto")
+
+[node name="HealthText" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 131.0
+offset_top = 8.0
+offset_right = 221.0
+offset_bottom = 65.0
+text = "10/10"
+label_settings = SubResource("LabelSettings_r7k6l")
+horizontal_alignment = 1
+vertical_alignment = 1

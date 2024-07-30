@@ -7,6 +7,9 @@ var movementVector : Vector2
 var speed : float = 150.0
 const acceleration : float = 10.0
 const near_player_multiplier = 0.5
+const starting_speed : float = 150.0
+var damageTimer : Timer = Timer.new() # no, we can't use get_tree().create_timer(2.0)
+var isDamaging : bool = false 
 
 enum directions{
 	UP,
@@ -27,6 +30,9 @@ func _ready():
 		$"EnemySprite".sprite_frames = enemyType.spriteAnim
 	else:
 		queue_free()
+		
+	damageTimer.wait_time = 0.5 
+	add_sibling.call_deferred(damageTimer)
 
 func _process(delta):
 	manageMovement(delta)
@@ -42,9 +48,10 @@ func manageMovement(delta):
 		dir = directions.RIGHT
 	
 	
-	speed = 150 * enemyType.speedMult
+	speed = starting_speed * enemyType.speedMult
 	if position.distance_to(player.position) < 100:
-		speed = 75
+		speed *= near_player_multiplier
+		damagePlayer()
 	
 	# Sets velocity
 	velocity = velocity.lerp(movementVector * speed, acceleration * delta)
@@ -119,3 +126,11 @@ func _on_health_component_death():
 	for drop in enemyType.drops:
 		drop.dropItems(position, get_parent().get_parent(), drop)
 	queue_free()
+
+func damagePlayer():
+	if isDamaging: return
+	isDamaging = true
+	get_parent().find_child("PlayerCharacter").find_child("HealthComponent").damage(enemyType.meleeDmg)
+	damageTimer.start()
+	await damageTimer.timeout
+	isDamaging = false

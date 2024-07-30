@@ -5,7 +5,10 @@ class_name HealthComponent
 var health : float
 var dead : bool
 
+var lasthealth
+
 signal death
+signal healthChanged
 
 func _ready():
 	resetHealth()
@@ -13,11 +16,16 @@ func _ready():
 func _process(delta):
 	if health > 0:
 		dead = false
+		
+	if lasthealth != health:
+		healthChanged.emit(health)
+		lasthealth = health
 
 func resetHealth():
 	health = MAX_HEALTH
 
 func damage(dmg : float):
+	print(health)
 	if (health > 0):
 		health -= dmg
 	elif (!dead):
