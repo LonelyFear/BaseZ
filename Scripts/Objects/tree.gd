@@ -17,7 +17,7 @@ func _on_interaction_component_interacted():
 	# Checks if the player is holding an axe
 	var toolTypes =  player.selectedItem.relatedTool.toolTypes
 	# Checks if we are in range
-	if (player.position.distance_to(position) <= player.maxRange && playerTool.toolType == toolTypes.AXE):
+	if (position.distance_to(player.position) <= playerTool.toolRange && player.toolManager.useTool(Tool.toolTypes.AXE)):
 		# Damages the tree
 		$"HealthComponent".damage(player.equippedTool.miningDmg)
 		# Use the Godot Particle system - a great system for making particles - to make some great particles

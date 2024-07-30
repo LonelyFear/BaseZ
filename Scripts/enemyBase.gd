@@ -109,12 +109,12 @@ func _on_interaction_component_interacted():
 		playerTool = player.selectedItem.relatedTool
 	else:
 		return
-	
-	$"HealthComponent".damage(playerTool.meleeDmg)
-	var particleInstance = load("res://Scenes/particles.tscn").instantiate()
-	particleInstance.texture.atlas = preload("res://Sprites/Blood.png")
-	particleInstance.position = position
-	add_sibling(particleInstance)
+	if (player.toolManager.useTool(-1)):
+		$"HealthComponent".damage(playerTool.meleeDmg)
+		var particleInstance = load("res://Scenes/particles.tscn").instantiate()
+		particleInstance.texture.atlas = preload("res://Sprites/Blood.png")
+		particleInstance.position = position
+		add_sibling(particleInstance)
 
 
 func _on_health_component_death():

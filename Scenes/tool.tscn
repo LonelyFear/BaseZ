@@ -8,3 +8,7 @@ script = ExtResource("1_ndvcm")
 [node name="ToolSprite" type="Sprite2D" parent="."]
 position = Vector2(50, 0)
 scale = Vector2(2.5, 2.5)
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+autostart = true

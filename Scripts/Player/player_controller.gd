@@ -5,6 +5,7 @@ class_name Player
 var maxRange := 200.0
 var equippedTool : Tool = null
 var selectedItem : Item = null
+var toolManager : ToolManager
 signal itemUpdate
 
 # Movement
@@ -25,6 +26,7 @@ var moving : bool = false
 @export var selectedSlot : int = 0
 
 func _ready():
+	toolManager = find_child("Tool")
 	inventory.update.connect(updateEquippedItem)
 	updateEquippedItem()
 

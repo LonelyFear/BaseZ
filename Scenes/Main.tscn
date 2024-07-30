@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://drt583wwsh87g"]
 
-[ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/Player.tscn" id="2_ehspa"]
+[ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/player.tscn" id="2_ehspa"]
 [ext_resource type="PackedScene" uid="uid://d27ipnduijy3u" path="res://Scenes/crosshair.tscn" id="3_lnose"]
 [ext_resource type="PackedScene" uid="uid://cpkfp0q6ro3gf" path="res://Scenes/tool.tscn" id="4_e1efq"]
 [ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="4_qg1i0"]
