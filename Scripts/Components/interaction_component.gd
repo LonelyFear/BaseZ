@@ -3,7 +3,6 @@ class_name InteractionComponent
 
 enum InteractionTypes {
 	ATTACK,
-	OPEN,
 	INTERACT
 }
 
