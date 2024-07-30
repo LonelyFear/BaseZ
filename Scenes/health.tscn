@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dyqarypdnfgqo"]
 
-[ext_resource type="Script" path="res://Scripts/health.gd" id="1_3c4wh"]
+[ext_resource type="Script" path="res://Scripts/Ui/health.gd" id="1_3hl0e"]
 [ext_resource type="Texture2D" uid="uid://b735cjyb7xell" path="res://Sprites/BaseZ Heart.png" id="1_eya0r"]
 [ext_resource type="Texture2D" uid="uid://dep4u75jv6w15" path="res://Sprites/healthBarBottom.png" id="3_2jgmn"]
 [ext_resource type="Texture2D" uid="uid://b48xmyvxhnw7q" path="res://Sprites/healthBarOutline.png" id="4_64slt"]
@@ -15,16 +15,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Health" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 632.0
-offset_right = 32.0
-offset_bottom = 632.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_3c4wh")
+anchors_preset = 0
+script = ExtResource("1_3hl0e")
 
 [node name="HeartIcon" type="TextureRect" parent="."]
 z_index = 1
@@ -35,10 +27,15 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_eya0r")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_top = 0.025
+anchor_right = 0.241
+anchor_bottom = 0.092
 offset_left = 53.0
-offset_top = 18.0
-offset_right = 181.0
+offset_top = 17.0
+offset_right = 182.0
 offset_bottom = 42.0
 scale = Vector2(2, 2)
 max_value = 10.0
