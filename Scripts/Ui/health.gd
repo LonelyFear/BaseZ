@@ -24,4 +24,4 @@ func _process(delta):
 func update(health):
 	tweenTarget = health
 	tween = true
-	$HealthText.text = str(health) + "/10"
+	$HealthBar/HealthText.text = str(health) + "/10"

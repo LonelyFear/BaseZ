@@ -9,7 +9,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7k6l"]
 font = ExtResource("6_nsucx")
-font_size = 72
+font_size = 90
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
@@ -50,13 +50,21 @@ texture_under = ExtResource("3_2jgmn")
 texture_over = ExtResource("4_64slt")
 texture_progress = ExtResource("5_e1bto")
 
-[node name="HealthText" type="Label" parent="."]
+[node name="HealthText" type="Label" parent="HealthBar"]
 z_index = 2
-layout_mode = 0
-offset_left = 131.0
-offset_top = 8.0
-offset_right = 221.0
-offset_bottom = 65.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -21.0
+offset_right = 87.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 text = "10/10"
 label_settings = SubResource("LabelSettings_r7k6l")
 horizontal_alignment = 1
