@@ -10,7 +10,6 @@ var tween : bool = false
 func _ready():
 	player = get_parent().get_parent().find_child("PlayerCharacter")
 	player.find_child("HealthComponent").healthChanged.connect(update)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

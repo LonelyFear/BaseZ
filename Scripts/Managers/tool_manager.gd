@@ -31,7 +31,7 @@ func updateTool():
 		visible = false
 
 func useTool(requiredType : Tool.toolTypes) -> bool:
-	if (cooldown.is_stopped() && requiredType == -1 || cooldown.is_stopped() && equippedTool && equippedTool.toolType == toolType ):
+	if (cooldown.is_stopped() && equippedTool && requiredType == toolType || cooldown.is_stopped() && requiredType == -1):
 		updateCooldown()
 		return true
 	else:

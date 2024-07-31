@@ -9,7 +9,6 @@ const acceleration : float = 10.0
 const near_player_multiplier = 0.5
 const starting_speed : float = 150.0
 var damageTimer : Timer = Timer.new() # no, we can't use get_tree().create_timer(2.0)
-var isDamaging : bool = false 
 
 enum directions{
 	UP,
@@ -30,8 +29,9 @@ func _ready():
 		$"EnemySprite".sprite_frames = enemyType.spriteAnim
 	else:
 		queue_free()
-		
-	damageTimer.wait_time = 0.5 
+	
+	damageTimer.wait_time = enemyType.damageCooldown
+	damageTimer.one_shot = true
 	add_sibling.call_deferred(damageTimer)
 
 func _process(delta):
@@ -49,7 +49,7 @@ func manageMovement(delta):
 	
 	
 	speed = starting_speed * enemyType.speedMult
-	if position.distance_to(player.position) < 100:
+	if position.distance_to(player.position) < 50:
 		speed *= near_player_multiplier
 		damagePlayer()
 	
@@ -111,11 +111,7 @@ func _on_interaction_component_interacted():
 		return
 	if (player.toolManager.useTool(-1)):
 		$"HealthComponent".damage(playerTool.meleeDmg)
-		var particleInstance = load("res://Scenes/particles.tscn").instantiate()
-		particleInstance.texture.atlas = preload("res://Sprites/Blood.png")
-		particleInstance.position = position
-		add_sibling(particleInstance)
-
+		BreakParticles.new().summonParticles(10, preload("res://Sprites/Blood.png"), position, get_parent())
 
 func _on_health_component_death():
 	for i in range(3):
@@ -128,9 +124,10 @@ func _on_health_component_death():
 	queue_free()
 
 func damagePlayer():
-	if isDamaging: return
-	isDamaging = true
-	get_parent().find_child("PlayerCharacter").find_child("HealthComponent").damage(enemyType.meleeDmg)
-	damageTimer.start()
-	await damageTimer.timeout
-	isDamaging = false
+	if (damageTimer.is_stopped()):
+		damageTimer.start()
+		player.find_child("HealthComponent").damage(enemyType.meleeDmg)
+		damageTimer.wait_time = enemyType.damageCooldown
+		
+		# Player Particles
+		BreakParticles.new().summonParticles(10, preload("res://Sprites/Blood.png"), player.position, player)
