@@ -1,7 +1,7 @@
 extends Control
 
 var player : Player = null
-
+var tileMap : TileMap
 const tweenStep : float = 0.2
 var tweenTarget : float = 0
 var tween : bool = false
@@ -21,6 +21,7 @@ func _process(delta):
 			while $HealthBar.value != tweenTarget:
 				$HealthBar.value -= tweenStep
 				await get_tree().create_timer(delta).timeout
+
 func update(health):
 	tweenTarget = health
 	tween = true

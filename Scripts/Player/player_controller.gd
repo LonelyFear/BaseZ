@@ -130,3 +130,4 @@ func manageInventoryInput():
 	if newSlot != selectedSlot:
 		selectedSlot = newSlot
 		updateEquippedItem()
+

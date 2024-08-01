@@ -5,7 +5,7 @@ var gridPos : Vector2i
 signal shoot
 
 var player : Player
-var tileGrid : TileMap
+var tileGrid : WallsMap
 var tileDict = {}
 
 var tween : Tween = null
@@ -24,6 +24,7 @@ func getGridPos():
 	gridPos = Vector2i(mousePos.x - 1, mousePos.y - 1)
 
 func _ready():
+	
 	getGridPos()
 	# Gets the player
 	player = get_parent()
@@ -74,16 +75,13 @@ func breakBlock():
 	# and checks if the player clicks
 	if (blockData && miningDmg >= blockData.minDmg && Input.is_action_pressed("Action") && player.toolManager.useTool(blockData.requiredToolType)):
 		# Subtracts the mining damage from the health at that point
-		tileDict[gridPos] -= miningDmg
-		# Checks if the health at the grid position is less than o
-		if (tileDict[gridPos] <= 0):
-			# If it is, we remove the tile.
-			tileGrid.erase_cell(0 , gridPos)
-			# Spawns the drop of the block
-			for drop in blockData.drops:
-				drop.dropItems(mousePos * 56, get_parent().get_parent(), drop)
-			# Adds particles
+		tileGrid.damageTile(gridPos, miningDmg)
+		# Adds particles
 		BreakParticles.new().summonParticles(10, blockData.blockSprite, position, self)
+
+func onTileBroken(blockData):
+	for drop in blockData.drops:
+		drop.dropItems(mousePos * 56, get_parent().get_parent(), drop)
 
 func buildBlock():
 	# Gets the block that we are going to try to place
@@ -150,3 +148,5 @@ func _on_area_2d_body_exited(body):
 	# Checks if the crosshair moved, then allows placing again
 	if (body.is_in_group("Object")):
 		canPlace = true
+
+
