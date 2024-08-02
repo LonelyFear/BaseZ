@@ -69,5 +69,3 @@ position = Vector2(827, 472)
 enemyType = ExtResource("7_k3v2s")
 
 [node name="Ui Layer" parent="." instance=ExtResource("8_lifoj")]
-
-[connection signal="tileBroken" from="Walls" to="PlayerCharacter/Crosshair" method="onTileBroken"]

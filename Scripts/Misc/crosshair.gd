@@ -79,10 +79,6 @@ func breakBlock():
 		# Adds particles
 		BreakParticles.new().summonParticles(10, blockData.blockSprite, position, self)
 
-func onTileBroken(blockData):
-	for drop in blockData.drops:
-		drop.dropItems(mousePos * 56, get_parent().get_parent(), drop)
-
 func buildBlock():
 	# Gets the block that we are going to try to place
 	var placedBlock = player.selectedItem.relatedBlock

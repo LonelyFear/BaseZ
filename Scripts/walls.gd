@@ -7,16 +7,22 @@ signal tileBroken(blockData : Block)
 func _ready():
 	updateGrid()
 
-func damageTile(pos : Vector2i, damage : int):
+func damageTile(pos : Vector2i, damage : int, drop : bool = true):
 	print("tile Damaged")
 	tileDict[pos] -= damage
 	print(tileDict[pos])
 	if (tileDict[pos] < 1):
-		tileBroken.emit(get_cell_tile_data(0, pos).get_custom_data("BlockData"))
+		if (drop):
+			var posFixed = Vector2i(pos.x + 1, pos.y + 1)
+			dropBlock(get_cell_tile_data(0, pos).get_custom_data("BlockData"), posFixed)
 		erase_cell(0 , pos)
 		tileDict.erase(pos)
 		
 		updateGrid()
+
+func dropBlock(blockData : Block, pos : Vector2):
+	for drop in blockData.drops:
+		drop.dropItems(pos * 56, get_parent(), drop)
 
 func updateGrid():
 	for currentTile in get_used_cells(0):
