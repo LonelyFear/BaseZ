@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://la442w0vr5tb"]
+
+[ext_resource type="Script" path="res://Scripts/enemyBase.gd" id="1_7x6v6"]
+[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="2_4lq4x"]
+[ext_resource type="PackedScene" uid="uid://cwwjl7pc2rqb8" path="res://Scenes/Components/InteractionComponent.tscn" id="2_44oif"]
+[ext_resource type="SpriteFrames" uid="uid://3uev08aql0xb" path="res://Resources/EnemyAnimations/basic_zombie_anim.tres" id="4_aww6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdomr"]
+size = Vector2(56, 72)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g6pq"]
+radius = 16.0
+height = 32.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["Object"]]
+collision_mask = 2
+script = ExtResource("1_7x6v6")
+
+[node name="Interaction Component" parent="." instance=ExtResource("2_44oif")]
+
+[node name="InteractionCollider" type="CollisionShape2D" parent="Interaction Component"]
+z_index = 10
+shape = SubResource("RectangleShape2D_xdomr")
+
+[node name="HealthComponent" type="Node2D" parent="." groups=["Object"]]
+script = ExtResource("2_4lq4x")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="." groups=["Object"]]
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("4_aww6v")
+animation = &"Walk_Up"
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="." groups=["Object", "Player"]]
+position = Vector2(0, 20)
+shape = SubResource("CapsuleShape2D_7g6pq")
+
+[connection signal="Interacted" from="Interaction Component" to="." method="_on_interaction_component_interacted"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

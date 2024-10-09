@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dudafsi53fjl0"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/item_object.gd" id="1_hwdm1"]
+[ext_resource type="SpriteFrames" uid="uid://w6sncdcjka05" path="res://Resources/items.tres" id="2_2pcnu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56uep"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kj274"]
+radius = 28.0
+
+[node name="Item" type="RigidBody2D" groups=["Item"]]
+collision_layer = 2
+collision_mask = 3
+gravity_scale = 0.0
+script = ExtResource("1_hwdm1")
+
+[node name="ItemSprites" type="AnimatedSprite2D" parent="." groups=["Item"]]
+sprite_frames = ExtResource("2_2pcnu")
+
+[node name="ItemCollider" type="CollisionShape2D" parent="." groups=["Item"]]
+shape = SubResource("CircleShape2D_56uep")
+
+[node name="PickupArea" type="Area2D" parent="."]
+
+[node name="PickupAreaShape" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_kj274")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

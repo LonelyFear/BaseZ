@@ -1,0 +1,40 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://cg85ye8lmoikp"]
+
+[sub_resource type="Curve" id="Curve_xorot"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.713636, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dde7c"]
+curve = SubResource("Curve_xorot")
+
+[sub_resource type="Curve" id="Curve_0bwxs"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tgwi"]
+curve = SubResource("Curve_0bwxs")
+
+[sub_resource type="Curve" id="Curve_idj81"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.240909, 1), 0.0, 0.0, 0, 0, Vector2(0.540909, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2se24"]
+curve = SubResource("Curve_idj81")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 200, 0)
+radial_accel_min = 350.0
+radial_accel_max = 350.0
+radial_accel_curve = SubResource("CurveTexture_2se24")
+damping_max = 25.0
+damping_curve = SubResource("CurveTexture_2tgwi")
+scale_min = 1.5
+scale_max = 1.75
+alpha_curve = SubResource("CurveTexture_dde7c")

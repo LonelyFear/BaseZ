@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://rx05bb3evoin"]
+
+[ext_resource type="PackedScene" uid="uid://b182vrq45yxiq" path="res://Scenes/player.tscn" id="1_iws6d"]
+[ext_resource type="PackedScene" uid="uid://d27ipnduijy3u" path="res://Scenes/crosshair.tscn" id="2_vwhvp"]
+[ext_resource type="PackedScene" uid="uid://cpkfp0q6ro3gf" path="res://Scenes/tool.tscn" id="3_b7enq"]
+[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="4_qucnv"]
+[ext_resource type="PackedScene" uid="uid://bc2xcun6lto02" path="res://Scenes/tree.tscn" id="5_sjxyk"]
+
+[node name="Objects" type="Node2D"]
+y_sort_enabled = true
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_iws6d")]
+
+[node name="Crosshair" parent="PlayerCharacter" instance=ExtResource("2_vwhvp")]
+
+[node name="Tool" parent="PlayerCharacter" instance=ExtResource("3_b7enq")]
+
+[node name="HealthComponent" type="Node2D" parent="PlayerCharacter"]
+script = ExtResource("4_qucnv")
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(393, 466)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(630, 201)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(792, 371)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(-61, 371)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(143, 437)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(658, 514)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("5_sjxyk")]
+position = Vector2(454, 259)

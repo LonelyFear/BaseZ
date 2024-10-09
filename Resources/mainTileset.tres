@@ -1,0 +1,41 @@
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://dy8epjtgbdlel"]
+
+[ext_resource type="Texture2D" uid="uid://15yakdfhxcv" path="res://Sprites/BaseZ Tilemap.png" id="1_mi2d2"]
+[ext_resource type="Resource" uid="uid://bbcfjlotk0s7n" path="res://CustomResources/Blocks/plank_block.tres" id="1_tqdkb"]
+[ext_resource type="Resource" uid="uid://dscefo4wejmof" path="res://CustomResources/Blocks/stone_bricks.tres" id="2_y3ruj"]
+[ext_resource type="Resource" uid="uid://xvtrmu5xvfng" path="res://CustomResources/Blocks/stone_block.tres" id="3_g42xk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gksm2"]
+texture = ExtResource("1_mi2d2")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/custom_data_1 = 1.0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/custom_data_0 = ExtResource("1_tqdkb")
+1:1/0 = 0
+1:1/0/custom_data_1 = 0.95
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/custom_data_0 = ExtResource("2_y3ruj")
+1:2/0 = 0
+1:2/0/custom_data_1 = 0.4
+1:3/0 = 0
+1:3/0/custom_data_1 = 1.0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = ExtResource("3_g42xk")
+0:3/0 = 0
+2:1/0 = 0
+2:1/0/custom_data_1 = 0.95
+2:2/0 = 0
+2:2/0/custom_data_1 = 0.5
+2:3/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 3
+custom_data_layer_0/name = "BlockData"
+custom_data_layer_0/type = 24
+custom_data_layer_1/name = "WalkSpeedMult"
+custom_data_layer_1/type = 3
+sources/0 = SubResource("TileSetAtlasSource_gksm2")

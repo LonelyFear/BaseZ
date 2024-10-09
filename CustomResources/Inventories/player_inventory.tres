@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=11 format=3 uid="uid://uvu8xtqqtq40"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/inventory.gd" id="1_dr512"]
+[ext_resource type="Resource" uid="uid://du0tvucyo2mjc" path="res://CustomResources/Items/wooden_axe.tres" id="2_4ucaq"]
+[ext_resource type="Script" path="res://Scripts/Resources/inv_slot.gd" id="2_305cn"]
+[ext_resource type="Resource" uid="uid://bgn04u68vfuib" path="res://CustomResources/Items/Tools/wooden_pickaxe.tres" id="4_7804t"]
+[ext_resource type="Resource" uid="uid://siwuivhfwig" path="res://CustomResources/Items/wooden_planks.tres" id="5_t5rc3"]
+
+[sub_resource type="Resource" id="Resource_010fn"]
+script = ExtResource("2_305cn")
+item = ExtResource("2_4ucaq")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_5kied"]
+script = ExtResource("2_305cn")
+item = ExtResource("4_7804t")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_bpdrs"]
+script = ExtResource("2_305cn")
+item = ExtResource("5_t5rc3")
+amount = 16
+
+[sub_resource type="Resource" id="Resource_3kvrf"]
+script = ExtResource("2_305cn")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_sr1vy"]
+script = ExtResource("2_305cn")
+amount = 0
+
+[resource]
+script = ExtResource("1_dr512")
+slots = Array[ExtResource("2_305cn")]([SubResource("Resource_010fn"), SubResource("Resource_5kied"), SubResource("Resource_bpdrs"), SubResource("Resource_3kvrf"), SubResource("Resource_sr1vy")])

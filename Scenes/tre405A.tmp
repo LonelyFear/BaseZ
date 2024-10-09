@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://bc2xcun6lto02"]
+
+[ext_resource type="PackedScene" uid="uid://cwwjl7pc2rqb8" path="res://Scenes/Components/InteractionComponent.tscn" id="1_srchm"]
+[ext_resource type="Texture2D" uid="uid://bv1ijfb28cwy8" path="res://Sprites/BaseZ Tree.png" id="1_v3k86"]
+[ext_resource type="Script" path="res://Scripts/Objects/tree.gd" id="1_y6kbx"]
+[ext_resource type="Resource" uid="uid://uflbuntqeqt" path="res://CustomResources/Drops/woodDrop.tres" id="2_icd2w"]
+[ext_resource type="PackedScene" uid="uid://cgv1aem1lbqv1" path="res://Scenes/Components/dropComponent.tscn" id="2_rvpke"]
+[ext_resource type="PackedScene" uid="uid://b1t053gdrp0og" path="res://Scenes/Components/HealthComponent.tscn" id="4_kpkuo"]
+[ext_resource type="Material" uid="uid://hktvcxtfwgvh" path="res://Resources/TreeParticleProcessMaterial.tres" id="7_bgxst"]
+[ext_resource type="Texture2D" uid="uid://cptu173t2ujeh" path="res://Sprites/plank.png" id="8_gsq03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmuo"]
+size = Vector2(80, 136)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ob03"]
+radius = 11.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bsmg"]
+atlas = ExtResource("8_gsq03")
+region = Rect2(0, 0, 5.76327, 5.84912)
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_y6kbx")
+
+[node name="DropComponent" parent="." instance=ExtResource("2_rvpke")]
+drops = Array[Resource("res://Scripts/Resources/drop.gd")]([ExtResource("2_icd2w")])
+
+[node name="Interaction Component" parent="." instance=ExtResource("1_srchm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component"]
+position = Vector2(0, -57)
+shape = SubResource("RectangleShape2D_dlmuo")
+
+[node name="TreeSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -57)
+scale = Vector2(4, 4)
+texture = ExtResource("1_v3k86")
+
+[node name="Tree Collider" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5ob03")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_kpkuo")]
+
+[node name="ChopParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+process_material = ExtResource("7_bgxst")
+texture = SubResource("AtlasTexture_2bsmg")
+lifetime = 0.65
+one_shot = true
+explosiveness = 0.35
+
+[connection signal="Interacted" from="Interaction Component" to="." method="_on_interaction_component_interacted"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

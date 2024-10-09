@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://b6j23hka7wjyx"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/tool_class.gd" id="1_mlxu0"]
+[ext_resource type="Texture2D" uid="uid://gu1vythd4vs8" path="res://Sprites/Items/BaseZ Wooden Axe.png" id="2_ttv4q"]
+
+[resource]
+script = ExtResource("1_mlxu0")
+meleeDmg = 1.0
+miningDmg = 1.0
+sprite = ExtResource("2_ttv4q")
+toolRange = 200.0
+toolType = 1

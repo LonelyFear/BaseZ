@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Block" load_steps=5 format=3 uid="uid://bbcfjlotk0s7n"]
+
+[ext_resource type="Texture2D" uid="uid://dsm45cs5n7vjp" path="res://Sprites/Blocks/BaseZ Planks.png" id="1_4omku"]
+[ext_resource type="Script" path="res://Scripts/Resources/block.gd" id="1_84yvb"]
+[ext_resource type="Resource" uid="uid://d23vj3hf2qy5m" path="res://CustomResources/Drops/Blocks/planks_drop.tres" id="1_yn56g"]
+[ext_resource type="Script" path="res://Scripts/Resources/drop.gd" id="2_hooyo"]
+
+[resource]
+script = ExtResource("1_84yvb")
+blockName = "Wooden Planks"
+minDmg = 1.0
+requiredToolType = 1
+blockHealth = 10.0
+atlasPos = Vector2i(0, 1)
+blockSprite = ExtResource("1_4omku")
+drops = Array[ExtResource("2_hooyo")]([ExtResource("1_yn56g")])

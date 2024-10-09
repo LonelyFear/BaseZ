@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dliobtnw62pvv"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/ui_inv_slot.gd" id="1_gr7v1"]
+[ext_resource type="Texture2D" uid="uid://cbkvgs5saghdf" path="res://Sprites/BaseZ Slots.png" id="3_el4ew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwofu"]
+atlas = ExtResource("3_el4ew")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w80x"]
+atlas = ExtResource("3_el4ew")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ips2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwofu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w80x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InvSlot" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_gr7v1")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(8, 8)
+scale = Vector2(0.5, 0.5)
+
+[node name="ItemCounter" type="Label" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -7.0
+offset_right = 106.0
+offset_bottom = 133.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 65
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="SlotSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_ips2r")

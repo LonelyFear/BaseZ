@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://siwuivhfwig"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/item.gd" id="2_oncdg"]
+[ext_resource type="Texture2D" uid="uid://dsm45cs5n7vjp" path="res://Sprites/Blocks/BaseZ Planks.png" id="2_sgmlf"]
+
+[resource]
+script = ExtResource("2_oncdg")
+itemName = "Wooden Planks"
+sprite = ExtResource("2_sgmlf")
+maxStack = 99
+relatedBlockPath = "res://CustomResources/Blocks/plank_block.tres"

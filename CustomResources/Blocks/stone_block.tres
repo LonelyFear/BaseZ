@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Block" load_steps=5 format=3 uid="uid://xvtrmu5xvfng"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/block.gd" id="1_csygr"]
+[ext_resource type="Resource" uid="uid://cqjyccqch3a2k" path="res://CustomResources/Drops/Blocks/stone_drops.tres" id="1_l3wy0"]
+[ext_resource type="Texture2D" uid="uid://mg3xdhl15emu" path="res://Sprites/Blocks/BaseZ Stone Block.png" id="1_q7tn5"]
+[ext_resource type="Script" path="res://Scripts/Resources/drop.gd" id="2_qh8dg"]
+
+[resource]
+script = ExtResource("1_csygr")
+blockName = "Stone"
+minDmg = 2.0
+requiredToolType = 2
+blockHealth = 15.0
+atlasPos = Vector2i(2, 0)
+blockSprite = ExtResource("1_q7tn5")
+drops = Array[ExtResource("2_qh8dg")]([ExtResource("1_l3wy0")])
